@@ -31,18 +31,14 @@ final class DiamondTest {
                 "C   C\n" +
                 " B B\n" +
                 "  A\n",
-            new Full(
-                new ADiamond().larger().larger()
-            ).printed()
+            new Full('C').printed()
         );
     }
 
     @Test
-    void name() {
+    void printLarge() {
         System.out.println(
-            new Full(
-                new ADiamond().larger().larger().larger().larger().larger().larger().larger()
-            ).printed()
+            new Full('H').printed()
         );
     }
 }

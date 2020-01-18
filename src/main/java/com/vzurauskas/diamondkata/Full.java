@@ -7,29 +7,19 @@ public final class Full {
 
     private final Diamond diamond;
 
-    public Full(char c) {
-        this(diamond(c));
+    public Full(char target) {
+        this.diamond = diamond(new A(), new ADiamond(), target);
     }
 
-    private static Diamond diamond(char c) {
-        Diamond d = new ADiamond();
-        for (int i = 0; i < c - 'A'; i++) {
-            d = d.larger();
-        }
-        return d;
-    }
-
-    public Full(Diamond diamond) {
-        this.diamond = diamond;
+    private static Diamond diamond(Letter letter, Diamond diamond, int target) {
+        return letter.value() == target
+            ? diamond
+            : diamond(new NextLetter(letter), diamond.larger(), target);
     }
 
     public String printed() {
-        return Stream.concat(
-            Stream.concat(
-                diamond.top(),
-                diamond.middle()
-            ), diamond.bottom()
-        )
+        return Stream.of(diamond.top(), diamond.middle(), diamond.bottom())
+            .flatMap(lines -> lines)
             .map(Line::value)
             .collect(Collectors.joining());
     }
