@@ -8,6 +8,11 @@ public final class NextLetter implements Letter {
     }
 
     @Override
+    public Letter next() {
+        return new NextLetter(this);
+    }
+
+    @Override
     public char value() {
         return (char) (prev.value() + (char) 1);
     }

@@ -23,7 +23,7 @@ public final class NormalLine implements Line {
 
     @Override
     public NormalLine pulled() {
-        return new NormalLine(new NextLetter(letter), padding, middle + "  ");
+        return new NormalLine(letter.next(), padding, middle + "  ");
     }
 
     @Override

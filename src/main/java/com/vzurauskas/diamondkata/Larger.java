@@ -13,7 +13,7 @@ public final class Larger implements Diamond {
 
     @Override
     public Diamond larger() {
-        return new Larger(this, new NextLetter(letter));
+        return new Larger(this, letter.next());
     }
 
     @Override

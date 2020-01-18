@@ -14,7 +14,7 @@ public final class Full {
     private static Diamond diamond(Letter letter, Diamond diamond, int target) {
         return letter.value() == target
             ? diamond
-            : diamond(new NextLetter(letter), diamond.larger(), target);
+            : diamond(letter.next(), diamond.larger(), target);
     }
 
     public String printed() {

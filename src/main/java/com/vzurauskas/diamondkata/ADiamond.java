@@ -6,7 +6,7 @@ public final class ADiamond implements Diamond {
 
     @Override
     public Diamond larger() {
-        return new Larger(this, new NextLetter(new A()));
+        return new Larger(this, new A().next());
     }
 
     @Override

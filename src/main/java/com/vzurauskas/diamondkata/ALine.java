@@ -19,7 +19,7 @@ public final class ALine implements Line {
 
     @Override
     public Line pulled() {
-        return new NormalLine(new NextLetter(new A()));
+        return new NormalLine(new A().next());
     }
 
     @Override
